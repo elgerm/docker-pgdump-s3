@@ -14,7 +14,7 @@ const job = new CronJob(cronSchedule, function(){
   console.log('Running cron task at ' + new Date())
   // run the backup script
   handler(null, null, function(){})
-}, null, true, 'America/Los_Angeles')
+}, null, true, 'Asia/Bangkok')
 
 process.on('SIGINT', function(){
   job.stop()
