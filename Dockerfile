@@ -1,8 +1,10 @@
-FROM node:lts-alpine
-RUN mkdir -p /usr/src/app
+FROM node:20-alpine
+
 WORKDIR /usr/src/app
-COPY . /usr/src/app
+COPY . .
 RUN npm install
-RUN apk update
-RUN apk add --no-cache 'postgresql>11.2' 
+
+# install PostgreSQL (if use pg_dump or psql)
+RUN apk add --no-cache postgresql-client
+
 CMD ["node", "index.js"]
